@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="vi" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Thông tin cá nhân</title>
+</head>
+<body class="bg-light">
+<div class="container py-5" style="max-width: 520px">
+    <div class="card shadow-sm">
+        <div class="card-body text-center">
+            <img th:if="${user.images != null}" th:src="@{${user.images}}" alt="avatar"
+                 class="rounded-circle mb-3" width="100" height="100">
+            <h4 class="card-title" th:text="${user.fullName}">Họ tên</h4>
+            <p class="text-muted mb-1" th:text="${user.email}">email</p>
+            <span class="badge bg-primary" th:text="${user.role}">USER</span>
+            <p class="small text-muted mt-3 mb-0">Tạo lúc: <span th:text="${user.createdAt}"></span></p>
+        </div>
+        <div class="card-footer text-center">
+            <button id="logoutBtn" type="button" class="btn btn-outline-danger">Đăng xuất</button>
+        </div>
+    </div>
+</div>
+<script th:src="@{/js/auth.js}"></script>
+</body>
+</html>
